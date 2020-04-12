@@ -1,0 +1,14 @@
+---
+  - name: Simple playbook to launch EC2 instance
+    hosts: localhost
+    connection: local
+    gather_facts: false
+    vars_files: AWS_credentials.yml
+    tasks:
+      - name: A task to create EC2 instance in us-west-2 region.
+        ec2:
+          aws_access_key: "{{access_key}}"
+          aws_secret_key: "{{secret_key}}"
+          instance_type: t2.micro
+          image: ami-01f08ef3e76b957e5
+          region: us-west-2
