@@ -1,0 +1,69 @@
+Ansible:
+
+	* Host Key Checking = False --> Purpose is to not ask for yes / no while connecting to the instance for first time.
+
+	*	Forks = 1 --> To execute the task in the nodes in series. i.e., not in parallel.
+		
+	*	Ansible will push the commands to Ansible nodes via SSH and will store the commands in user path under .ansible 		path 		and it will remove the commands once it is executed.		
+			
+				Keep tmp files = 1 --> TO store the commands.		
+
+--------------------------------------------------------------		
+		
+	*	Ad-hoc commands:
+
+		1.	copy module src, dest options--> The purpose is to copy the file from ansible control machine (ACM) to 						Ansible nodes.
+		2.	fetch module src, dest options--> The purpose is to download the file from ansible nodes to ACM,
+		3.	file module dest state = touch / absent / directory options--> THe purpose is to create or delete a file or 			directory.
+		4.	state option = present / latest 
+
+--------------------------------------------------------------		
+		
+	*	Ansible facts:
+
+			Tasks for collecting the information about the remote server or ansible nodes.
+
+			Information about Ansible nodes i.e., OS, processor, python version etc,.
+
+			Two types of facts --> (i) Default facts (module - setup), (ii) Custom facts - If we want to collect other than 		default facts, then we need to create a custom facts. i.e,. It contains user defined facts.		
+
+			By default, ansible playbook will collect all facts about the node.		
+
+-------------------------------------------------------------		
+		
+	*	debug module --> It is used to print the statement while executing the playbook. We can print in three ways. (i) 		msg, 		(ii) vars, (iii) verbosity options.
+
+-------------------------------------------------------------		
+		
+	*	vars_prompt module --> It is used to enter the value for a variable. 
+
+			Example:
+				vars_prompt:
+					name: x
+					prompt: Enter the value for x
+					private: false --> The purpose is to not hide the value which we enter
+
+------------------------------------------------------------		
+		
+	*	ignore_errors: yes --> The purpose is to ignore the taks if it fails, and run the remaining tasks. Need to add 			this option in the tasks to run the remaining tasks.
+
+------------------------------------------------------------
+
+	*	ansible_os_family is a environment variable which will display the OS of the Ansible nodes.
+
+------------------------------------------------------------
+
+	*	block and rescue is like a try and except function.
+
+------------------------------------------------------------
+
+	*	import_tasks are static, include_tasks are dynamic. All import statements are pre-processed at the time of 					playbooks are parsed. But, all include tasks are processed as they encountered during the execution of playbook. 
+			We can import or include the below items:
+			1. Playbooks
+			2. Role
+			3. Tasks
+			4. Vars.
+
+-----------------------------------------------------------
+
+	*	Ansible Vault --> The purpose is to encrypt the playbooks, roles, vars.
