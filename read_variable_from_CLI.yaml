@@ -3,6 +3,7 @@
    vars_prompt:
       name: variable
       prompt: Enter any value
+      private: false
    tasks:
      - name: To print the variable
        debug:
