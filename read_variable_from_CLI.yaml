@@ -1,0 +1,9 @@
+---
+ - hosts: localhost
+   vars_prompt:
+      name: variable
+      prompt: Enter any value
+   tasks:
+     - name: To print the variable
+       debug:
+          msg: "The value of your variable is {{ variable }}"
