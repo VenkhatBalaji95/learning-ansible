@@ -1,0 +1,29 @@
+Yaml:
+
+Data collection:
+	Data will be stored in a key value pair representation. There are 3 types of data representaion in yaml.
+
+1. Scalar representaion of data:
+	Single value will be stored in a single key.
+		Syntax --> key: value
+		Example --> my_int: 25
+
+Instead of single value for a key, we can use 
+	(i) more values for a single key
+	(ii) multiple key value pair.
+This is called data collection. Tow types are there
+	(i) Sequence data collection - It is like storing the list of values. i.e., It is like list in python
+			Example:
+				name:
+				  - venkhat
+				  - balaji
+				  - age: 25
+	(ii) Map data collection - It is like dictionaries in pythone i.e., more than one scalar represenation. We can also add list to the values.
+			Example:
+				name:
+				  my_int: 25
+				  name: venkhat balaji
+				  age: 25
+				  tcs:
+				    - ILP
+				    - project: Nielsen

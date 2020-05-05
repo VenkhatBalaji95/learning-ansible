@@ -67,3 +67,20 @@ Ansible:
 -----------------------------------------------------------
 
 	*	Ansible Vault --> The purpose is to encrypt the playbooks, roles, vars.
+
+----------------------------------------------------------
+
+	*	Register module --> The purpose is to store the response after completion of each task. We have to use register module at the end of each task
+
+		Example: 
+			tasks:
+			 - command: touch /tmp/file.txt
+			   register: variable name
+			 - debug:
+			  	 msg: "The response is {{ variable name }}"
+
+---------------------------------------------------------
+
+	* delegate_to module --> The purpose is to run the task in the specific host. i.e., The task will run only in the server which we mention in the delegate_to module.
+
+---------------------------------------------------------
